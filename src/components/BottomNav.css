@@ -1,0 +1,47 @@
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--graapes-bottom-nav-height);
+  z-index: 1030;
+  border-top: 1px solid var(--graapes-glass-border);
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--graapes-text-muted);
+  flex: 1;
+  height: 100%;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  padding: 0.25rem 0;
+}
+
+.nav-item span {
+  margin-top: 0.25rem;
+}
+
+.nav-item:hover, .nav-item.active {
+  color: var(--graapes-primary);
+}
+
+.nav-item.active svg {
+  stroke: var(--graapes-primary);
+  fill: rgba(124, 58, 237, 0.1);
+}

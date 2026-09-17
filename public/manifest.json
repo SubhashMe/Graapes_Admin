@@ -1,0 +1,15 @@
+{
+  "short_name": "Graapes",
+  "name": "Graapes Mobile SaaS",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#f8f9fc",
+  "display": "standalone",
+  "theme_color": "#7c3aed"
+}

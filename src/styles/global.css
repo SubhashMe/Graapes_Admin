@@ -1,0 +1,217 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Cold Brand Colors */
+  --graapes-primary: #0284c7; /* Ocean Blue */
+  --graapes-primary-light: #38bdf8;
+  --graapes-primary-dark: #0369a1;
+  
+  --graapes-secondary: #8b5cf6; /* Indigo */
+  --graapes-accent: #06b6d4; /* Cyan */
+  
+  /* Light Theme (Glassmorphism) */
+  --graapes-bg: linear-gradient(135deg, #e0f2fe 0%, #c7d2fe 50%, #fbcfe8 100%); /* Pastel Mesh Gradient */
+  --graapes-surface: rgba(255, 255, 255, 0.4);
+  --graapes-text: #0f172a;
+  --graapes-text-muted: #475569;
+  --graapes-border: rgba(255, 255, 255, 0.3);
+  
+  /* Status Colors */
+  --graapes-success: #10b981;
+  --graapes-warning: #f59e0b;
+  --graapes-danger: #ef4444;
+  
+  /* Enhanced Glassmorphism */
+  --graapes-shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --graapes-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --graapes-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --graapes-glass-bg: rgba(255, 255, 255, 0.35); /* More transparent for glass effect */
+  --graapes-glass-border: rgba(255, 255, 255, 0.6);
+  --graapes-glass-blur: blur(24px);
+
+  --graapes-radius-sm: 0.5rem;
+  --graapes-radius: 1rem;
+  --graapes-radius-lg: 1.5rem;
+  --graapes-radius-full: 9999px;
+
+  /* Mobile App Specific */
+  --graapes-bottom-nav-height: 64px;
+}
+
+
+/* Base Styles Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--graapes-bg);
+  background-attachment: fixed;
+  color: var(--graapes-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: var(--graapes-primary);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--graapes-primary-dark);
+}
+
+ul {
+  list-style: none;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: var(--graapes-glass-bg);
+  backdrop-filter: var(--graapes-glass-blur);
+  -webkit-backdrop-filter: var(--graapes-glass-blur);
+  border: 1px solid var(--graapes-glass-border);
+  box-shadow: var(--graapes-shadow);
+  border-radius: var(--graapes-radius);
+}
+
+/* Mobile Layout Helpers */
+.mobile-safe-bottom {
+  padding-bottom: calc(var(--graapes-bottom-nav-height) + 1rem);
+}
+
+/* Override Bootstrap where necessary for premium look */
+.btn-primary {
+  background-color: var(--graapes-primary) !important;
+  border-color: var(--graapes-primary) !important;
+  border-radius: var(--graapes-radius) !important;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.btn-primary:hover {
+  background-color: var(--graapes-primary-dark) !important;
+  transform: translateY(-1px);
+  box-shadow: var(--graapes-shadow);
+}
+
+.card {
+  background-color: var(--graapes-surface);
+  border: 1px solid var(--graapes-border);
+  border-radius: var(--graapes-radius-lg);
+  box-shadow: var(--graapes-shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  box-shadow: var(--graapes-shadow);
+}
+
+.form-control {
+  background-color: var(--graapes-bg);
+  border: 1px solid var(--graapes-border);
+  color: var(--graapes-text);
+  border-radius: var(--graapes-radius);
+  padding: 0.75rem 1rem;
+}
+.form-control:focus {
+  background-color: var(--graapes-bg);
+  border-color: var(--graapes-primary);
+  box-shadow: 0 0 0 0.2rem rgba(124, 58, 237, 0.25);
+  color: var(--graapes-text);
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--graapes-border);
+  border-radius: var(--graapes-radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--graapes-text-muted);
+}
+
+ /* --- ORGANIC UI UPDATES --- */
+
+/* Grainy Noise Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+}
+
+/* Organic Hover States for Glass Panels */
+.glass-panel {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+.glass-panel:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Handcrafted Button Overrides */
+.btn-primary {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 0 var(--graapes-primary-dark) !important;
+  border: 1px solid var(--graapes-primary-dark) !important;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--graapes-primary-dark) !important;
+}
+.btn-primary:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 var(--graapes-primary-dark) !important;
+}
+ /* Mobile App Desktop Wrapper */
+@media (min-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--graapes-bg);
+  }
+  .mobile-app-wrapper {
+    width: 100%;
+    max-width: 414px; /* iPhone size */
+    height: 90vh;
+    max-height: 896px;
+    border-radius: 40px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.15), inset 0 0 0 8px #000;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: var(--graapes-bg);
+    /* Bring back the noise for the mobile frame */
+  }
+  .mobile-app-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+  }
+  /* Remove body noise on desktop since it is now in the wrapper */
+  body::before {
+    display: none;
+  }
+}
